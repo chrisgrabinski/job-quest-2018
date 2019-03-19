@@ -1,23 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
 const App = () => {
+  const [joke, setJoke] = useState("Joke");
+
+  function fetchJoke() {
+    fetch('http://api.icndb.com/jokes/random/')
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (myJson) {
+        setJoke(myJson.value.joke)
+      });
+  }
+
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          {joke}
           </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-          </a>
+        <button onClick={fetchJoke}>Fetch Joke</button>
 
       </header>
     </div>
