@@ -1,73 +1,68 @@
-# TakeMeTour's Job Quest 2018 Edition
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Thank you for your interest in working at TakeMeTour. First, we would like to take a simple test on your coding skill.
+## Available Scripts
 
-Please fork this repo and work on the test. After finishing the test, please send your repo to WantToWork@takemetour.com (Subject: JavaScript Engineer Application).
+In the project directory, you can run:
 
-The quest has 2 major parts: **Front-end** and **Back-end**. If you interesting on which part you can work on the test only that part. But you can do both. (Or in case you want to apply as **Full-stack Engineer** you should done both. Obviously.)
+### `npm start`
 
-Also in both part has some question needed to be answer. So don't forget to done that. Answer can be both in Thai or English.
+Runs the app in the development mode.<br>
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-## Front-End
+The page will reload if you make edits.<br>
+You will also see any lint errors in the console.
 
-You are going to make a web application which allow users to get some joke from **Chuck Norris**.
+### `npm test`
 
-> Chuck Norris once ordered a Big Mac at Burger King, and got one.
+Launches the test runner in the interactive watch mode.<br>
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-In case you don't know who the heck is Chuck Norris. See his statement.
+### `npm run build`
 
-![](https://blazepress.com/.image/c_limit%2Ccs_srgb%2Cq_auto:good%2Cw_620/MTI4OTk1Mjg4MDE3OTEzODY2/18.webp)
+Builds the app for production to the `build` folder.<br>
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-(Sorry. Please just google it)
+The build is minified and the filenames include the hashes.<br>
+Your app is ready to be deployed!
 
-### Features
-- Users can get a joke from [Chuck Norris API](http://www.icndb.com/api/)
-- Users has options to change number of result jokes, user's first name and last name
-- How to display the result is up to you.
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### Technical description
-- Using data from [REST API](http://www.icndb.com/api/)
-- Any tools & framework is allowed.
-- If you are using tools & framework which is same as our tech stack (React, Redux, styled-components etc.) will be a plus.
-- Any extra feature will be a plus.
+### `npm run eject`
 
-### Front-end Questions
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-1. Please explain a situation that using Redux to manage application state is more helpful than original React's state.
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-2. Why do we need "Server-Side Rendering". Please explain.
+Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-3. Explain the differences of `null` and `undefined`
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-4. Tell us the benefit of using ESLint.
+## Learn More
 
-## Back-End
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-You are going to made a simple **Thai's joke API**. And this API is follow to REST API pattern.
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-Thai's joke API can allow user to explore, add, delete, like or dislike Thai's joke.
+### Code Splitting
 
-### Endpoints
-- `GET /` Get all jokes.
-- `POST /` Add new joke.
-- `GET /:id` Get joke by id.
-- `DELETE /:id` Delete joke. (In case you hate it)
-- `POST /:id/like` Like a joke. (Because we don't have authentication system yet. Like spaming is fine here.)
-- `POST /:id/dislike` Dislike a joke. (Same as above. Dislike spaming is fine here.)
+This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
 
-### Technical description
-- All data must store to the database. Any database is fine. But we prefer MongoDB.
-- Back-end code must written in Node.js. Any library or helper tools is up to you.
+### Analyzing the Bundle Size
 
-### Bonus
-- If you can make like/dislike system can't be spammed (like or dislike action only happen once for each joke respect to user). We will give you a bonus on that.
-- If you deploy this API publicly to anywhere with some **GOOD Thai's joke** to get. We will give you a bonus on that as well. (Deploy to where and how is up to you. But don't forget to send us your work.)
+This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
 
-### Back-end Questions
+### Making a Progressive Web App
 
-1. Explain a benefit gain from using JavaScript to implements back-end API server.
+This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
 
-2. Explain what is a GraphQL?
+### Advanced Configuration
 
-3. If you have a task to convert existing back-end API which follow to REST API pattern to GraphQL. Which approach you will make?
+This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
 
+### Deployment
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+
+### `npm run build` fails to minify
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
