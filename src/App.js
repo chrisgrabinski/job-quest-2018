@@ -3,15 +3,16 @@ import logo from "./logo.svg";
 import "./App.css";
 
 const App = () => {
-  const [joke, setJoke] = useState();
+  const [jokes, setJokes] = useState([]);
   const [firstName, setFirstName] = useState("Chuck");
   const [lastName, setLastName] = useState("Norris");
+  const [jokesNumber, setJokesNumber] = useState(1);
 
   function fetchJoke(event) {
     event.preventDefault();
 
     fetch(
-      `http://api.icndb.com/jokes/random/?${firstName &&
+      `http://api.icndb.com/jokes/random/${jokesNumber}?${firstName &&
         `firstName=${firstName}`}${firstName && lastName && `&`}${lastName &&
         `lastName=${lastName}`}`
     )
@@ -19,7 +20,7 @@ const App = () => {
         return response.json();
       })
       .then(function(myJson) {
-        setJoke(myJson.value.joke);
+        setJokes(myJson.value);
       });
   }
 
@@ -47,12 +48,25 @@ const App = () => {
                 onChange={event => setLastName(event.target.value)}
               />
             </label>
+            <label>
+              Number of jokes
+              <input
+                type="number"
+                name="jokesNumber"
+                value={jokesNumber}
+                onChange={event => setJokesNumber(event.target.value)}
+              />
+            </label>
           </div>
           <button type="submit" onClick={fetchJoke}>
             Fetch Joke
           </button>
         </form>
-        <p>{joke}</p>
+        <ul>
+          {jokes.map(({ joke }) => (
+            <li key={joke}>{joke}</li>
+          ))}
+        </ul>
       </header>
     </div>
   );
