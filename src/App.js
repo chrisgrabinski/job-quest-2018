@@ -7,7 +7,9 @@ const App = () => {
   const [firstName, setFirstName] = useState("Chuck");
   const [lastName, setLastName] = useState("Norris");
 
-  function fetchJoke() {
+  function fetchJoke(event) {
+    event.preventDefault();
+
     fetch(
       `http://api.icndb.com/jokes/random/?${firstName &&
         `firstName=${firstName}`}${firstName && lastName && `&`}${lastName &&
@@ -46,9 +48,11 @@ const App = () => {
               />
             </label>
           </div>
+          <button type="submit" onClick={fetchJoke}>
+            Fetch Joke
+          </button>
         </form>
         <p>{joke}</p>
-        <button onClick={fetchJoke}>Fetch Joke</button>
       </header>
     </div>
   );
