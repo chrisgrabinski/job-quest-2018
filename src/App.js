@@ -19,9 +19,7 @@ const App = () => {
     setIsLoading(true);
 
     fetch(
-      `http://api.icndb.com/jokes/random/${jokesNumber}?${firstName &&
-        `firstName=${firstName}`}${firstName && lastName && `&`}${lastName &&
-        `lastName=${lastName}`}`
+      `http://api.icndb.com/jokes/random/${jokesNumber}?firstName=${firstName}&lastName=${lastName}`
     )
       .then(function(response) {
         return response.json();
@@ -70,7 +68,15 @@ const App = () => {
               onChange={event => setJokesNumber(event.target.value)}
             />
           </div>
-          <button type="submit" onClick={fetchJoke}>
+          <button
+            type="submit"
+            onClick={fetchJoke}
+            disabled={
+              firstName.length === 0 ||
+              lastName.length === 0 ||
+              jokesNumber === 0
+            }
+          >
             Fetch Joke
           </button>
         </form>
