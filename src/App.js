@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { css } from "emotion";
 import logo from "./logo.svg";
 import "./App.css";
 
@@ -36,7 +37,16 @@ const App = () => {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <form action="">
-          <div>
+          <div
+            className={css`
+              display: grid;
+              gap: 16px;
+
+              @media (min-width: 640px) {
+                grid-template-columns: repeat(3, 1fr);
+              }
+            `}
+          >
             <Input
               type="text"
               label="First Name"
