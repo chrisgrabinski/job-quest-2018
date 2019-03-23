@@ -67,7 +67,7 @@ const App = () => {
           {isLoading && <p>Loading</p>}
           <ul>
             {jokes.map(({ id, joke }) => (
-              <li key={id}>{joke}</li>
+              <li key={id}>{joke.replace(/&quot;/g, '"')}</li>
             ))}
           </ul>
         </div>
