@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { css } from "emotion";
 
 import Input from "./components/Input";
@@ -9,6 +9,15 @@ const App = () => {
   const [firstName, setFirstName] = useState("Chuck");
   const [lastName, setLastName] = useState("Norris");
   const [jokesNumber, setJokesNumber] = useState(5);
+  const [formIsDisabled, setFormIsDisabled] = useState(false);
+
+  useEffect(() => {
+    if (firstName.length === 0 || lastName.length === 0 || jokesNumber === 0) {
+      setFormIsDisabled(true);
+    } else {
+      setFormIsDisabled(false);
+    }
+  });
 
   function fetchJoke(event) {
     event.preventDefault();
@@ -78,9 +87,7 @@ const App = () => {
         <button
           type="submit"
           onClick={fetchJoke}
-          disabled={
-            firstName.length === 0 || lastName.length === 0 || jokesNumber === 0
-          }
+          disabled={formIsDisabled}
           className={css`
             background-color: #f04242;
             border: 0;
