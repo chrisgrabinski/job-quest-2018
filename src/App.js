@@ -105,7 +105,7 @@ const App = () => {
         </button>
       </form>
       <div>
-        {isLoading && <p>Loading</p>}
+        {isLoading && <p>Loading…</p>}
         <ul
           className={css`
             list-style: none;
