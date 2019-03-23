@@ -9,7 +9,7 @@ const App = () => {
   const [jokes, setJokes] = useState([]);
   const [firstName, setFirstName] = useState("Chuck");
   const [lastName, setLastName] = useState("Norris");
-  const [jokesNumber, setJokesNumber] = useState(1);
+  const [jokesNumber, setJokesNumber] = useState(5);
 
   function fetchJoke(event) {
     event.preventDefault();
