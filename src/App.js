@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import { css } from "emotion";
-import logo from "./logo.svg";
-import "./App.css";
 
 import Input from "./components/Input";
 
@@ -31,64 +29,105 @@ const App = () => {
   }
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <form action="">
-          <div
-            className={css`
-              display: grid;
-              gap: 16px;
+    <div
+      className={css`
+        max-width: 720px;
+        padding: 0 7.5vw;
+        margin: 0 auto;
+      `}
+    >
+      <form
+        action=""
+        className={css`
+          margin: 64px 0;
+        `}
+      >
+        <div
+          className={css`
+            display: grid;
+            gap: 16px;
 
-              @media (min-width: 640px) {
-                grid-template-columns: repeat(3, 1fr);
-              }
-            `}
-          >
-            <Input
-              type="text"
-              label="First Name"
-              name="firstName"
-              value={firstName}
-              onChange={event => setFirstName(event.target.value)}
-            />
-            <Input
-              type="text"
-              label="Last Name"
-              name="lastName"
-              value={lastName}
-              onChange={event => setLastName(event.target.value)}
-            />
-            <Input
-              type="number"
-              label="Number of jokes"
-              name="jokesNumber"
-              min={1}
-              value={jokesNumber}
-              onChange={event => setJokesNumber(event.target.value)}
-            />
-          </div>
-          <button
-            type="submit"
-            onClick={fetchJoke}
-            disabled={
-              firstName.length === 0 ||
-              lastName.length === 0 ||
-              jokesNumber === 0
+            @media (min-width: 640px) {
+              grid-template-columns: 1fr 1fr 0.5fr;
             }
-          >
-            Fetch Joke
-          </button>
-        </form>
-        <div>
-          {isLoading && <p>Loading</p>}
-          <ul>
-            {jokes.map(({ id, joke }) => (
-              <li key={id}>{joke.replace(/&quot;/g, '"')}</li>
-            ))}
-          </ul>
+          `}
+        >
+          <Input
+            type="text"
+            label="First Name"
+            name="firstName"
+            value={firstName}
+            onChange={event => setFirstName(event.target.value)}
+          />
+          <Input
+            type="text"
+            label="Last Name"
+            name="lastName"
+            value={lastName}
+            onChange={event => setLastName(event.target.value)}
+          />
+          <Input
+            type="number"
+            label="Number of jokes"
+            name="jokesNumber"
+            min={1}
+            value={jokesNumber}
+            onChange={event => setJokesNumber(event.target.value)}
+          />
         </div>
-      </header>
+        <button
+          type="submit"
+          onClick={fetchJoke}
+          disabled={
+            firstName.length === 0 || lastName.length === 0 || jokesNumber === 0
+          }
+          className={css`
+            background-color: #f04242;
+            border-radius: 5px;
+            border: 0;
+            color: white;
+            cursor: pointer;
+            display: block;
+            font-size: 18px;
+            font-weight: bold;
+            height: 56px;
+            margin: 32px auto 0;
+            padding: 0 28px;
+          `}
+        >
+          Fetch Joke
+        </button>
+      </form>
+      <div>
+        {isLoading && <p>Loading</p>}
+        <ul
+          className={css`
+            list-style: none;
+            margin: 0;
+            padding: 0;
+          `}
+        >
+          {jokes.map(({ id, joke }) => (
+            <li key={id}>
+              <div
+                className={css`
+                  font-family: monospace;
+                  font-size: 18px;
+                  padding: 16px;
+                  transition: background-color 150ms
+                    cubic-bezier(0.455, 0.03, 0.515, 0.955);
+
+                  &:hover {
+                    background-color: #ffe900;
+                  }
+                `}
+              >
+                {joke.replace(/&quot;/g, '"')}
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };
