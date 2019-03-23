@@ -66,8 +66,8 @@ const App = () => {
         <div>
           {isLoading && <p>Loading</p>}
           <ul>
-            {jokes.map(({ joke }) => (
-              <li key={joke}>{joke}</li>
+            {jokes.map(({ id, joke }) => (
+              <li key={id}>{joke}</li>
             ))}
           </ul>
         </div>
