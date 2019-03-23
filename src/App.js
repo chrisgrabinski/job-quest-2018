@@ -83,7 +83,6 @@ const App = () => {
           }
           className={css`
             background-color: #f04242;
-            border-radius: 5px;
             border: 0;
             color: white;
             cursor: pointer;
@@ -95,7 +94,7 @@ const App = () => {
             padding: 0 28px;
           `}
         >
-          Fetch Joke
+          Show me some jokes
         </button>
       </form>
       <div>
