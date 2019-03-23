@@ -89,10 +89,10 @@ const App = () => {
           onClick={fetchJoke}
           disabled={formIsDisabled}
           className={css`
-            background-color: #f04242;
+            background-color: ${!formIsDisabled ? `#f04242` : `#CCCCCC`};
             border: 0;
             color: white;
-            cursor: pointer;
+            cursor: ${!formIsDisabled ? `pointer` : `not-allowed`};
             display: block;
             font-size: 18px;
             font-weight: bold;
