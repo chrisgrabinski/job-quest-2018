@@ -5,6 +5,7 @@ import "./App.css";
 import Input from "./components/Input";
 
 const App = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const [jokes, setJokes] = useState([]);
   const [firstName, setFirstName] = useState("Chuck");
   const [lastName, setLastName] = useState("Norris");
@@ -12,6 +13,9 @@ const App = () => {
 
   function fetchJoke(event) {
     event.preventDefault();
+
+    setJokes([]);
+    setIsLoading(true);
 
     fetch(
       `http://api.icndb.com/jokes/random/${jokesNumber}?${firstName &&
@@ -22,6 +26,7 @@ const App = () => {
         return response.json();
       })
       .then(function(myJson) {
+        setIsLoading(false);
         setJokes(myJson.value);
       });
   }
@@ -58,11 +63,14 @@ const App = () => {
             Fetch Joke
           </button>
         </form>
-        <ul>
-          {jokes.map(({ joke }) => (
-            <li key={joke}>{joke}</li>
-          ))}
-        </ul>
+        <div>
+          {isLoading && <p>Loading</p>}
+          <ul>
+            {jokes.map(({ joke }) => (
+              <li key={joke}>{joke}</li>
+            ))}
+          </ul>
+        </div>
       </header>
     </div>
   );
