@@ -1,7 +1,7 @@
 import React from "react";
 import { css } from "emotion";
 
-const Input = ({ type, label, name, value, onChange }) => {
+const Input = ({ type, label, name, value, min, onChange }) => {
   return (
     <label>
       <span
@@ -17,6 +17,7 @@ const Input = ({ type, label, name, value, onChange }) => {
         type={type}
         name={name}
         value={value}
+        min={min}
         onChange={onChange}
         className={css`
           border-radius: 5px;

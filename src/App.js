@@ -65,6 +65,7 @@ const App = () => {
               type="number"
               label="Number of jokes"
               name="jokesNumber"
+              min={1}
               value={jokesNumber}
               onChange={event => setJokesNumber(event.target.value)}
             />
