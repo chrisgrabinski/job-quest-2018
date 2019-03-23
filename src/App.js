@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 
+import Input from "./components/Input";
+
 const App = () => {
   const [jokes, setJokes] = useState([]);
   const [firstName, setFirstName] = useState("Chuck");
@@ -30,33 +32,27 @@ const App = () => {
         <img src={logo} className="App-logo" alt="logo" />
         <form action="">
           <div>
-            <label>
-              First name
-              <input
-                type="text"
-                name="firstName"
-                value={firstName}
-                onChange={event => setFirstName(event.target.value)}
-              />
-            </label>
-            <label>
-              Last name
-              <input
-                type="text"
-                name="lastName"
-                value={lastName}
-                onChange={event => setLastName(event.target.value)}
-              />
-            </label>
-            <label>
-              Number of jokes
-              <input
-                type="number"
-                name="jokesNumber"
-                value={jokesNumber}
-                onChange={event => setJokesNumber(event.target.value)}
-              />
-            </label>
+            <Input
+              type="text"
+              label="First Name"
+              name="firstName"
+              value={firstName}
+              onChange={event => setFirstName(event.target.value)}
+            />
+            <Input
+              type="text"
+              label="Last Name"
+              name="lastName"
+              value={lastName}
+              onChange={event => setLastName(event.target.value)}
+            />
+            <Input
+              type="number"
+              label="Number of jokes"
+              name="jokesNumber"
+              value={jokesNumber}
+              onChange={event => setJokesNumber(event.target.value)}
+            />
           </div>
           <button type="submit" onClick={fetchJoke}>
             Fetch Joke
